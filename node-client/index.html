@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+        integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        ul, li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+        }
+        h1, h2, h3, h4 ,h5 ,h6, p {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        main {
+            display: flex;
+        }
+        .room-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #333; 
+        }
+        .room {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-button {
+            display: none;
+        }
+        .user-list {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333; 
+        }
+    </style>
+</head>
+
+<body>
+    
+<div>전체 접속자 <span id="count">0</span>명</div>
+<div>방 접속자 <span id="roomCount">0</span>명</div>
+<main>
+    <section>
+        <textarea rows="20" cols="30" id="chat"></textarea><br>
+        <input type="text" id="user" onkeydown="handleSendMessageEvent()"><input type="button" value="전송" onclick="sendMassage()">
+    </section>
+    <section class="room-list">
+        <ul id="roomList">
+        </ul>
+        <div>
+            <input type="text" id="room" onkeydown="handleCretaeRoomEvent()">
+            <button onclick="createRoom()">방개설</button>
+        </div>
+    </section>
+    <section id="userList" class="user-list">
+
+    </section>
+</main>
+</body>
+
+    <script src="./app.js"></script>
+</html>
